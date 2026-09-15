@@ -13,7 +13,6 @@ Features:
   WASD controls cannot be unbound.
 
 
-
 Requirements and stuff:
 
   Doesn't support X64 or ARM builds yet. Only able to build as X32.
