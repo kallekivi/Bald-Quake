@@ -1,7 +1,4 @@
 Features:
-
-
-
   Forced mouselook.
   
   Music. (Music path needs to be ./id1/music/01.wav->10.wav)
@@ -14,15 +11,7 @@ Features:
   
   WASD controls cannot be unbound.
 
-
-
-
-
-
-
 Requirements and stuff:
-
-
 
   Doesn't support X64 or ARM builds yet. Only able to build as X32.
   
