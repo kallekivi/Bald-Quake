@@ -200,6 +200,7 @@ double Sys_FloatTime(void) {
 	return (double)(now - start) / (double)frequency;
 }
 
+
 char *Sys_ConsoleInput (void)
 {
 	return NULL;
