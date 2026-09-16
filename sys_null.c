@@ -19,7 +19,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 */
 // sys_null.h -- null system driver to aid porting efforts
 
-#include <windows.h>
 #include "quakedef.h"
 #include "errno.h"
 #include "hellishInput.h"
@@ -188,24 +187,17 @@ void Sys_Quit (void)
 }
 
 
-double Sys_FloatTime(void)
-{
-	static LARGE_INTEGER frequency;
-	static LARGE_INTEGER start;
-	LARGE_INTEGER now;
+double Sys_FloatTime(void) {
+	static Uint64 start;
+	static Uint64 frequency;
 
-	if (!frequency.QuadPart)
-	{
-		if (!QueryPerformanceFrequency(&frequency))
-			Sys_Error("QueryPerformanceFrequency failed");
-
-		QueryPerformanceCounter(&start);
+	if (!frequency) {
+		frequency = SDL_GetPerformanceFrequency();
+		start = SDL_GetPerformanceCounter();
 	}
 
-	QueryPerformanceCounter(&now);
-
-	return (double)(now.QuadPart - start.QuadPart) /
-		(double)frequency.QuadPart;
+	Uint64 now = SDL_GetPerformanceCounter();
+	return (double)(now - start) / (double)frequency;
 }
 
 char *Sys_ConsoleInput (void)
