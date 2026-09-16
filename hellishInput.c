@@ -1,4 +1,4 @@
-#include "SDL3/SDL.h"
+#include <SDL.h>
 #include "quakedef.h"
 
 void HellishInput(void) {
