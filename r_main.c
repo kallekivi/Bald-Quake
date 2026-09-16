@@ -1060,10 +1060,10 @@ void R_RenderView (void)
 	if ( Hunk_LowMark() & 3 )
 		Sys_Error ("Hunk is missaligned");
 
-	if ( (long)(&dummy) & 3 )
+	if ( (uintptr_t)(&dummy) & 3 )
 		Sys_Error ("Stack is missaligned");
 
-	if ( (long)(&r_warpbuffer) & 3 )
+	if ( (uintptr_t)(&r_warpbuffer) & 3 )
 		Sys_Error ("Globals are missaligned");
 
 	R_RenderView_ ();
